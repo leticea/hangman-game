@@ -17,6 +17,12 @@ main {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   height: 200px;
   max-width: 400px;
 }
@@ -56,4 +62,15 @@ button {
 
 button:hover {
   opacity: 0.8;
+}
+
+.clue {
+  font-size: 18px;
+}
+
+@media (max-width: 650px) {
+  main {
+    flex-direction: column;
+    padding: 10px;
+  }
 }
