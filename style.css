@@ -58,6 +58,7 @@ button {
   width: 120px;
   background-color: #3ba128;
   margin: 20px;
+  transition: all 0.2s;
 }
 
 button:hover {

@@ -56,6 +56,20 @@ function verifyLetter(letter) {
   if (!arr.length) {
     wrongAnswer();
   }
+
+  arr.forEach((e) => {
+    e.textContent = letter;
+  });
+
+  const spans = document.querySelectorAll(`.guess-word span`);
+  const won = !Array.from(spans).find((span) => span.textContent === "_");
+
+  if (won) {
+    setTimeout(() => {
+      alert("Muito bem! Você acertou!");
+      init();
+    }, 100);
+  }
 }
 
 function generateButtons() {

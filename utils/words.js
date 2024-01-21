@@ -19,6 +19,8 @@ const words = [
   { word: "raios", clue: "Descargas elétricas na atmosfera" },
   { word: "montanha", clue: "Elevação natural da terra" },
   { word: "vela", clue: "Objeto para iluminação" },
+  { word: "friends", clue: "Série de comédia famosa" },
+  { word: "mercúrio", clue: "Menor planeta do sistema solar" },
 ];
 
 export default function getWord() {
