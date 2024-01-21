@@ -24,6 +24,11 @@ function generateButtons() {
     const letter = String.fromCharCode(i).toUpperCase();
     btn.textContent = letter;
 
+    btn.onclick = () => {
+      btn.disabled = true;
+      btn.style.backgroundColor = "gray";
+    };
+
     contentBtns.appendChild(btn);
   }
 }
