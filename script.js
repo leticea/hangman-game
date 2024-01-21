@@ -1,21 +1,29 @@
-import getWord from "./utils/words";
+import getWord from "./utils/words.js";
 
 const contentBtns = document.querySelector(".btns");
 const contentGuessWord = document.querySelector(".guess-word");
 const img = document.querySelector("img");
 const contentClue = document.querySelector(".clue");
 const newGameBtn = document.querySelector(".new-game");
-let imgIndex;
+let indexImg;
 
 init();
 
 function init() {
-  imgIndex = 1;
-  img.src = `img1.png`;
+  indexImg = 1;
+  img.src = `/assets/img1.png`;
 
   generateButtons();
 }
 
 function generateButtons() {
   contentBtns.textContent = "";
+
+  for (let i = 97; i < 123; i++) {
+    const btn = document.createElement("button");
+    const letter = String.fromCharCode(i).toUpperCase();
+    btn.textContent = letter;
+
+    contentBtns.appendChild(btn);
+  }
 }
