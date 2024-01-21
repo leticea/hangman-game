@@ -5,6 +5,8 @@ const contentGuessWord = document.querySelector(".guess-word");
 const img = document.querySelector("img");
 const contentClue = document.querySelector(".clue");
 const newGameBtn = document.querySelector(".new-game");
+
+newGameBtn.onclick = () => init();
 let indexImg;
 
 init();
@@ -30,7 +32,30 @@ function generateGuessSection() {
 
     span.textContent = "_";
     span.setAttribute("word", letter.toUpperCase());
+    contentGuessWord.appendChild(span);
   });
+
+  contentClue.textContent = `Dica: ${clue}`;
+}
+
+function wrongAnswer() {
+  indexImg++;
+  img.src = `/assets/img${indexImg}.png`;
+
+  if (indexImg === 7) {
+    setTimeout(() => {
+      alert("Que pena, você não acertou :(");
+      init();
+    }, 100);
+  }
+}
+
+function verifyLetter(letter) {
+  const arr = document.querySelectorAll(`[word="${letter}"]`);
+
+  if (!arr.length) {
+    wrongAnswer();
+  }
 }
 
 function generateButtons() {
@@ -44,6 +69,7 @@ function generateButtons() {
     btn.onclick = () => {
       btn.disabled = true;
       btn.style.backgroundColor = "gray";
+      verifyLetter(letter);
     };
 
     contentBtns.appendChild(btn);
