@@ -13,7 +13,24 @@ function init() {
   indexImg = 1;
   img.src = `/assets/img1.png`;
 
+  generateGuessSection();
   generateButtons();
+}
+
+function generateGuessSection() {
+  contentGuessWord.textContent = "";
+
+  const { word, clue } = getWord();
+  const wordWithoutAccent = word
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+  Array.from(wordWithoutAccent).forEach((letter) => {
+    const span = document.createElement("span");
+
+    span.textContent = "_";
+    span.setAttribute("word", letter.toUpperCase());
+  });
 }
 
 function generateButtons() {
